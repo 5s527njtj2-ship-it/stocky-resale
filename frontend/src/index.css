@@ -1,0 +1,63 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111111;
+  --white: #FFFFFF;
+  --gray-100: #F5F5F5;
+  --gray-200: #EBEBEB;
+  --gray-300: #D4D4D4;
+  --gray-500: #8C8C8C;
+  --gray-700: #4A4A4A;
+  --accent: #111111;
+  --error: #C81E1E;
+  --success: #1E7A3E;
+  --text: #111111;
+  --text-muted: #6B6B6B;
+  --text-hint: #ABABAB;
+  --border: #E5E5E5;
+  --border-strong: #D0D0D0;
+  --bg: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+}
+
+html, body {
+  font-family: 'Helvetica Neue', -apple-system, Arial, sans-serif;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  max-width: 480px;
+  margin: 0 auto;
+  transition: background .2s ease, color .2s ease;
+}
+
+/* Тёмная тема — подключается автоматически по цветовой схеме Telegram */
+body.dark {
+  --black: #FFFFFF;
+  --white: #1C1C1E;
+  --text: #F2F2F2;
+  --text-muted: #A0A0A0;
+  --text-hint: #6B6B6B;
+  --border: #2C2C2E;
+  --border-strong: #3A3A3C;
+  --bg: #000000;
+  --bg-card: #1C1C1E;
+  --bg-secondary: #1C1C1E;
+}
+
+#root { min-height: 100vh; }
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea {
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+  accent-color: var(--black);
+}
+input::placeholder, textarea::placeholder { color: var(--text-hint); }
+img { display: block; }
+::-webkit-scrollbar { display: none; }
