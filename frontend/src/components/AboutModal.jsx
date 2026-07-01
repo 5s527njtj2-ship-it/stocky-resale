@@ -36,7 +36,7 @@ export default function AboutModal({ onClose }) {
 
           <div className="about-block">
             <div className="about-label">Режим работы</div>
-            <div className="about-value">Ежедневно: 11:00–21:00</div>
+            <div className="about-value">Ежедневно: 11:30–21:00</div>
           </div>
 
           <div className="about-block">
@@ -52,12 +52,7 @@ export default function AboutModal({ onClose }) {
             <div className="about-value">
               Магазин брендовой одежды и аксессуаров в Москве. Только оригинал —
               никаких реплик и подделок. Шоурум с примеркой, доставка по России.
-              Рейтинг 4.3 на Яндекс Картах.
             </div>
-          </div>
-
-          <div className="about-discount-block">
-            🎁 При покупке от 3 вещей — скидка 10% на весь заказ
           </div>
 
           <div className="about-note">

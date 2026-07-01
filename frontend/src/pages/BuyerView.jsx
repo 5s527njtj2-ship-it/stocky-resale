@@ -18,7 +18,7 @@ const SORT_OPTIONS = [
 export default function BuyerView({ cart, onAddToCart, onRemoveFromCart, onClearCart, favorites, onToggleFavorite, onRefreshFavorites, telegramId, startArt, onStartArtHandled }) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
-  const [section, setSection] = useState('women')
+  const [section, setSection] = useState('men')
   const [subcategory, setSubcategory] = useState('all')
   const [search, setSearch] = useState('')
   const [view, setView] = useState('catalog') // 'catalog' | 'cart' | 'favorites'
@@ -34,7 +34,7 @@ export default function BuyerView({ cart, onAddToCart, onRemoveFromCart, onClear
   const subcats = SUBCATEGORIES[section] || []
   const hasActiveFilters = priceRange.min || priceRange.max || sizeFilter
 
-  const SECTION_PREFIX = { women: 'w-', men: 'm-', home: 'home' }
+  const SECTION_PREFIX = { men: 'm-', women: 'w-' }
 
   const fetchItems = useCallback(async () => {
     try {
@@ -49,13 +49,12 @@ export default function BuyerView({ cart, onAddToCart, onRemoveFromCart, onClear
       if (sizeFilter) params.set('size', sizeFilter)
       const data = await apiFetch(`/items?${params}`)
       const prefix = SECTION_PREFIX[section]
-      const hasPrefix = i => i.category.startsWith('w-') || i.category.startsWith('m-') || i.category === 'home'
+      const hasPrefix = i => i.category.startsWith('w-') || i.category.startsWith('m-')
       let filtered = subcategory === 'all'
         ? data.filter(i => {
-            if (prefix === 'home') return i.category === 'home'
             if (i.category.startsWith(prefix)) return true
             // товары со старыми категориями (без префикса) по умолчанию показываем в разделе "Женское"
-            if (section === 'women' && !hasPrefix(i)) return true
+            if (section === 'men' && !hasPrefix(i)) return true
             return false
           })
         : data
